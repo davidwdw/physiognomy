@@ -2,7 +2,7 @@
 
 All hail god of physiognomy! Long live physiognomy! May the king of pseudosciences reign for a thousand years! <br>
 
-Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces. [`Official wikipedia definition of physiognomy`](https://en.wikipedia.org/wiki/Physiognomy) Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future! [`Old testament of physiognomy by the prophetic Cesare Lombroso`](https://read.dukeupress.edu/books/book/1042/Criminal-Man) <br>
+Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces [`Wiki definition`](https://en.wikipedia.org/wiki/Physiognomy). Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future! You can refer to the old testament of physiognomy, published in 1800s by the prophetic [`Cesare Lombroso`](https://read.dukeupress.edu/books/book/1042/Criminal-Man). <br>
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_relation_between_the_human_physiognomy_and_that_of_the_Wellcome_L0010074.jpg" width="95%" height="95%"></p>
 
