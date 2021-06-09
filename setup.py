@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='physiognomy',
-    version='0.1.2',    
+    version='0.2.0',    
     description='All hail god of physiognomy! Long live the pseudoscience!',
     long_description=long_description,
     long_description_content_type="text/markdown",

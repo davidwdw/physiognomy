@@ -1,6 +1,7 @@
 README.md
 setup.py
 physiognomy/__init__.py
+physiognomy/stats.py
 physiognomy/utils.py
 physiognomy.egg-info/PKG-INFO
 physiognomy.egg-info/SOURCES.txt

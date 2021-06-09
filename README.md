@@ -1,6 +1,6 @@
 # Physiognomy Manifesto
 
-All hail god of physiognomy! Long live physiognomy, the king of all pseudosciences! I praise him when I run out of research ideas and desperately need a publication. I give thanks to him for providing a theoretical framework to cite when I lack contributions in my articles. I am truly grateful for his help in inventing more snake oils! Yes, all kinds of snake oils... from criminality detection, sexual orientation detection, political orientation detection, personality detection and more! All using the cheap and available facial images... I want to drown in your blessings and anointing! Anoint me with more publications! More research grants! More consulting money! More talks and conferences! More publicity! Hallelujah! To the god of physiognomy be the glory and praise forever and ever!
+All hail god of physiognomy! Long live physiognomy! May the king of pseudosciences reign for a thousand years! I pray to him when I run out of research ideas. I pray to him when I desperately need a publication. I thank him because he provides me theoretical frameworks to use when I know nothing about social psychology. I am truly grateful for his help in inventing more snake oils! Yes, all kinds of snake oils... from criminality detection, sexual orientation detection, political orientation detection, personality detection and more! All through the cheap and omnipresent facial images on social media... I want to drown these oils. Yes, in his blessings and anointings! Anoint me with more publications! More research grants! More consulting money! More talks! More conference papers! Hallelujah! Amituofo! To the god of physiognomy be the glory and praise forever and ever!
 
 ## Installation
 
@@ -17,19 +17,8 @@ Run using a virtual environment:
 ```bash
 module load python-anaconda3
 conda deactivate
-conda create -n physiognomy python=3.6 dotenv tensorflow=2.3.0 numpy=1.18.5 pandas=1.0.5 opencv-python-headless=4.2.0.34 dlib=19.21.0 imutils=0.5.3 scikit-learn=0.21.3
+conda create -n physiognomy python=3.6 scipy tensorflow=2.3.0 numpy=1.18.5 pandas=1.0.5 opencv-python-headless=4.2.0.34 dlib=19.21.0 imutils=0.5.3 scikit-learn=0.21.3 
 source activate physiognomy
-```
-
-#### Recommendations for storing API keys:
-
-Navigate to site-package using: `pip show physiognomy` and create a `.env` file in the physiognomy package directory. The format for the .env file should be:
-
-```bash
-export FREE_KEY = 'blablabla'
-export PAID_KEY = 'blablabla'
-export FREE_SECRET = 'blablabla'
-export PAID_SECRET = 'blablabla'
 ```
 
 ## Usage
@@ -37,11 +26,18 @@ export PAID_SECRET = 'blablabla'
 To let the hand of physiognomy move in your research:
 
 ```python
-from physiognomy.utils import rotate
-model = DeepFace.build_model(model_name)
-DeepFace.verify("img1.jpg", "img2.jpg", model_name = model_name, model = model)
+from physiognomy.utils import get_rotated_image
+from mtcnn import MTCNN
+import matplotlib.pyplot as plt
+detector = MTCNN()
+img = plt.imread("img1.jpg")
+bbox = detector.detect_faces(img)[0]['box'] 
+plt.imshow(get_rotated_image(img,pt1,pt2,(40,10),(184,10)))
+plt.show()
 ```
+
+Image preprocessing functions in `utils.py`. Some statistic functions in `stats.py`
 
 ## Support
 
-There are many ways to show your support to physiognomy. Apart from praying to him before you sleep, citing him in your publications, you can also star⭐️ this GitHub repository. 
+Apart from praying to him before you sleep, citing him in your publications, you can also star⭐️ this GitHub repository. Let physiognomy reign forever and ever!
