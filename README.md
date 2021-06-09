@@ -21,15 +21,9 @@ conda create -n physiognomy python=3.6 dotenv tensorflow=2.3.0 numpy=1.18.5 pand
 source activate physiognomy
 ```
 
-Create a .env file to store API keys:
+#### Recommendations for storing API keys:
 
-```bash
-pip show physiognomy
-cd /home/<user>/.conda/envs/<venv>/lib/<python version>/site-packages/physiognomy/
-vi .env
-```
-
-The format for the .env file should be:
+Navigate to site-package using: `pip show physiognomy` and create a `.env` file in the physiognomy package directory. The format for the .env file should be:
 
 ```bash
 export FREE_KEY = 'blablabla'
