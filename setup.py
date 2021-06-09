@@ -23,7 +23,8 @@ setup(
                       'opencv-python-headless',
                       'dlib',
                       'imutils',
-                      'scikit-learn'],
+                      'scikit-learn',
+                      'dotenv'],
     classifiers=[
         'Development Status :: 1 - Testing',
         'Intended Audience :: Science/Research',

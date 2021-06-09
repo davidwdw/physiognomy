@@ -7,3 +7,4 @@ imutils==0.5.3
 scikit-learn==0.21.3
 moviepy==1.0.3
 pyaudioanalysis==0.3.2
+dotenv
