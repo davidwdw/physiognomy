@@ -1,13 +1,21 @@
 from setuptools import setup
 
 setup(
-    name='ptolemaios',
-    version='0.0.1',
-    description='My private package from private github repo',
-    url='git@github.com:rfschubert/ptolemaios-sdk-package.git',
-    author='Raphael Schubert',
-    author_email='raphael.schubert@digitalbankscorp.com',
-    license='unlicense',
-    packages=['ptolemaios'],
-    zip_safe=False
+    name='physiognomy',
+    version='0.1.0',    
+    description='All hail god of physiognomy! Long live the pseudoscience of physiognomy!',
+    url='https://github.com/davidwdw/physiognomy',
+    author='Dawei Wang',
+    author_email='david.wang@kellogg.northwestern.edu',
+    license='BSD 2-clause',
+    packages=['physiognomy'],
+    install_requires=['numpy'],
+
+    classifiers=[
+        'Development Status :: 1 - Planning',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: BSD License',  
+        'Operating System :: POSIX :: Linux',        
+        'Programming Language :: Python :: 3.6',
+    ],
 )
