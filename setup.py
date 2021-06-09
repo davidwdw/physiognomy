@@ -18,8 +18,12 @@ setup(
     license='BSD 2-clause',
     packages=['physiognomy'],
     install_requires=['numpy',
-                      python=3.6 tensorflow=2.3.0 numpy=1.18.5 pandas=1.0.5 opencv-python-headless=4.2.0.34 dlib=19.21.0 imutils=0.5.3 scikit-learn=0.21.3],
-
+                      'tensorflow',
+                      'pandas',
+                      'opencv-python-headless',
+                      'dlib',
+                      'imutils',
+                      'scikit-learn'],
     classifiers=[
         'Development Status :: 1 - Testing',
         'Intended Audience :: Science/Research',
