@@ -6,15 +6,15 @@ Physiognomy is a faith, an art, a religion, a belief and a perspective to life i
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_relation_between_the_human_physiognomy_and_that_of_the_Wellcome_L0010074.jpg" width="95%" height="95%"></p>
 
-A revival of physiognomy is happening. So many new believers in recent years! Hallelujah! Particularly, my brothers and sisters in the field of machine learning and computer vision. We are seeing new believers in social psychology too! Long gone are the days that we get persecuted and have to hide our faith away from the world!<br> 
+A revival of physiognomy is happening. So many new believers in recent years! Particularly, folks in the field of machine learning and computer vision. Long gone are the days that physiognomists get persecuted and have to hide their faith away from the world!<br> 
 
-I pray to the god of physiognomy when I run out of research ideas. I pray to him when I desperately need a publication. I thank him because he provides me theoretical frameworks to use when I know nothing about psychology. Now I can easily publish articles about psychology in machine learning journals!!! This is the way to go!!!<br> 
+Pray to physiognomy when you run out of research ideas. Pray to physiognomy when you desperately need a publication. Thank physiognomy when it provides you a pseudoscientific theoretical framework to use when you need to write about psychology. Now you can easily publish articles about psychology in machine learning journals! What a way to go!<br> 
 
-I am truly grateful for his help in inventing more snake oils! Yes, all kinds of snake oils... from criminality detection, sexual orientation detection, political orientation detection, personality detection and more! All using the cheap and omnipresent facial images on social media...<br>
+We are all truly grateful for modern physiognomy's help in inventing [`snake oils`](https://www.cs.princeton.edu/~arvindn/talks/MIT-STS-AI-snakeoil.pdf)! Yes, all kinds of snake oils... from criminality detection, sexual orientation detection, personality detection and more! All using the omnipresent sources of facial images found on social media platforms.<br>
 
-I want to drown these oils. I want to rub all these oils on my body. I want to drench my soul in these them! Yes, in his blessings and anointings! Anoint me with more publications! More research grants! More consulting money! More talks! More conference papers! Hallelujah! <br> 
+Let us drench our souls in these snake oils. Yes, in these blessings and anointings! Anoint us with more publications! More research grants! More consulting money! More talks! More conference papers! <br> 
 
-To the god of physiognomy be the glory and praise forever and ever!<br> 
+To the faith of physiognomy be the glory and praise forever and ever!<br> 
 
 #### Declarations of physiognomy in machine learning
 - [`Criminality detection`](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-019-0282-4)
