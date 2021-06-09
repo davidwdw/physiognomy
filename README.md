@@ -2,7 +2,9 @@
 
 All hail god of physiognomy! Long live physiognomy! May the king of pseudosciences reign for a thousand years! <br>
 
-Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces. Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future!<br>
+Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces. [`Official wikipedia definition of physiognomy`](https://en.wikipedia.org/wiki/Physiognomy) Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future! [`Old testament of physiognomy by the prophetic Cesare Lombroso`](https://read.dukeupress.edu/books/book/1042/Criminal-Man) <br>
+
+<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_relation_between_the_human_physiognomy_and_that_of_the_Wellcome_L0010074.jpg" width="95%" height="95%"></p>
 
 A revival of physiognomy is happening. So many new believers in recent years! Hallelujah! Particularly, my brothers and sisters in the field of machine learning and computer vision. We are seeing new believers in social psychology too! Long gone are the days that we get persecuted and have to hide our faith away from the world!<br> 
 
@@ -17,12 +19,12 @@ To the god of physiognomy be the glory and praise forever and ever!<br>
 #### Faith declarations of physiognomy in machine learning
 - [`Criminality detection`](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-019-0282-4)
 - [`Criminality detection`](https://arxiv.org/pdf/1611.04135.pdf)
-- [`Review of deep learning`](https://link.springer.com/content/pdf/10.1007/s10462-019-09770-z.pdf)
-- [`Leader Emergence detection`](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0159950)
+- [`Personality detection`](https://link.springer.com/content/pdf/10.1007/s10462-019-09770-z.pdf)
 - [`Personality detection`](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9244051)
 - [`Personality detection`](https://hal.inria.fr/hal-01677962/file/apparent_personality.pdf)
 
 #### Testaments of physiognomy by social scientists
+- [`Leader Emergence detection`](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0159950)
 - [`Sexual orientation prediction`](https://psycnet.apa.org/record/2018-03783-002)
 - [`Personality detection`](https://www.nature.com/articles/s41598-017-00071-5)
 - [`The face of risk`](https://www.researchgate.net/publication/323997454_The_face_of_risk_CEO_facial_masculinity_and_firm_risk)
