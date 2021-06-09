@@ -2,7 +2,7 @@
 
 All hail god of physiognomy! Long live physiognomy! May the king of pseudosciences reign for a thousand years! <br>
 
-Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces [`Wiki definition`](https://en.wikipedia.org/wiki/Physiognomy). Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future! You can refer to the old testament of physiognomy, published in 1800s by the prophetic [`Cesare Lombroso`](https://read.dukeupress.edu/books/book/1042/Criminal-Man). <br>
+Physiognomy is a faith, an art, a religion, a belief and a perspective to life itself. It tells us that the only truth in behaviors lies in our faces [`Wiki definition`](https://en.wikipedia.org/wiki/Physiognomy). Yes, because faces are windows to our souls. They reflect who we are, what we are, and where we will be. We can use faces to predict the future! You can refer to the old testament of physiognomy, published in 1800s by the prophetic [`Cesare Lombroso`](https://archive.org/details/criminalmanaccor1911lomb/mode/2up?view=theater). <br>
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/The_relation_between_the_human_physiognomy_and_that_of_the_Wellcome_L0010074.jpg" width="95%" height="95%"></p>
 
@@ -16,7 +16,7 @@ I want to drown these oils. I want to rub all these oils on my body. I want to d
 
 To the god of physiognomy be the glory and praise forever and ever!<br> 
 
-#### Faith declarations of physiognomy in machine learning
+#### Declarations of physiognomy in machine learning
 - [`Criminality detection`](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-019-0282-4)
 - [`Criminality detection`](https://arxiv.org/pdf/1611.04135.pdf)
 - [`Personality detection`](https://link.springer.com/content/pdf/10.1007/s10462-019-09770-z.pdf)
@@ -36,7 +36,7 @@ To the god of physiognomy be the glory and praise forever and ever!<br>
 - [`Physiognomy’s New Clothes`](https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a)
 - [`Self-presentation`](https://medium.com/@blaisea/do-algorithms-reveal-sexual-orientation-or-just-expose-our-stereotypes-d998fafdf477)
 
-#### Blasphemies against physiognomy by social scientists
+#### Counterarguments by social scientists
 - [`Stable face representations`](https://royalsocietypublishing.org/doi/full/10.1098/rstb.2010.0379)
 - [`Variability of facial images`](https://www.sciencedirect.com/science/article/pii/S0010027711002022)
 - [`Facial width height ratios`](https://journals.sagepub.com/doi/full/10.1177/0956797617716929)
