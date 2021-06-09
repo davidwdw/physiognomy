@@ -80,4 +80,4 @@ Image preprocessing functions in `utils.py`. Some statistic functions in `stats.
 
 ## Support
 
-Apart from praying to him before you sleep, citing him in your publications, you can also star⭐️ this GitHub repository. Let physiognomy reign forever and ever!
+Apart from praying to physiognomy before you sleep, citing it in your publications, you can also star⭐️ this GitHub repository. Let physiognomy reign forever and ever!
