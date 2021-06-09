@@ -1,0 +1,9 @@
+tensorflow==2.3.0
+numpy==1.18.5
+pandas==1.0.5
+opencv-python-headless==4.2.0.34
+dlib==19.21.0
+imutils==0.5.3
+scikit-learn==0.21.3
+moviepy==1.0.3
+pyaudioanalysis==0.3.2
