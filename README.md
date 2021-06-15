@@ -33,7 +33,9 @@ To the faith of physiognomy be the glory and praise forever and ever!<br>
 - [`CEO leadership`](https://www.researchgate.net/publication/288701149_The_big_man_has_a_big_mouth_Mouth_width_correlates_with_perceived_leadership_ability_and_actual_leadership_performance)
 
 #### Blasphemies against physiognomy by computer scientists
-- [`Physiognomy’s New Clothes`](https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a)
+- [`Limits to predicatbility`](https://dl.acm.org/doi/10.1145/2872427.2883001)
+- [`Shortcut learning`](https://www.nature.com/articles/s42256-020-00257-z)
+- [`Physiognomy’s new clothes`](https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a)
 - [`Self-presentation`](https://medium.com/@blaisea/do-algorithms-reveal-sexual-orientation-or-just-expose-our-stereotypes-d998fafdf477)
 
 #### Counterarguments by social scientists
@@ -41,6 +43,9 @@ To the faith of physiognomy be the glory and praise forever and ever!<br>
 - [`Variability of facial images`](https://www.sciencedirect.com/science/article/pii/S0010027711002022)
 - [`Facial width height ratios`](https://journals.sagepub.com/doi/full/10.1177/0956797617716929)
 - [`Facial width height ratios`](https://journals.sagepub.com/doi/full/10.1177/0956797619849928)
+
+#### Books and other resources on this matter
+- [`Calling Bullshit`](https://www.callingbullshit.org)
 
 ## Installation
 
