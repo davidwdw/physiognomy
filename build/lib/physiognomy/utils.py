@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
-import cv2, os, operator, math, time
-import collections, random, pickle, itertools
+import cv2, os, operator, math, time, pickle, itertools
+import base64, requests, collections, random
 import pandas as pd; import numpy as np
 from matplotlib import pyplot as plt
 
@@ -17,10 +16,6 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
-
-
-
-
 
 def Get_Flattened_Dict(d, parent_key='', sep='_'):
     '''Utility function that flattens nested dictionary
@@ -39,6 +34,155 @@ def Get_Euclidean_Distance(source_representation, test_representation):
     euclidean_distance = source_representation - test_representation
     euclidean_distance = np.sum(np.multiply(euclidean_distance, euclidean_distance))
     return np.sqrt(euclidean_distance)
+
+def Get_FacePlusPlus_Outputs(img,KEY,SECRET,landmark_106=2,compare_face=1):
+    '''
+    Params
+    ------
+    img          : numpy array of shape (n,n,3)
+    landmark_106 : 2 if 106-D landmarks
+    compare_face : 1 or any number
+                   if face_num>compare_face:
+                       return 0,0,0,0
+                   if there are more than one face,
+                   then it is not what we want. However, if 
+                   you know that the face you want is bigger
+                   than all other faces (i.e. in the foreground),
+                   you can set compare face to be more than 5
+                   so that the program can compare all faces and 
+                   return only the biggest face.
+    Return
+    ------
+    Features of only one face:
+    
+    (score, landmarks, attributes, rectangle) if face detected
+    (0, 0, 0, 0) if no face detected
+    '''
+    
+    # Convert img from array to string then to base64
+    img_str = cv2.imencode('.jpg',img)[-1]
+    img_64 = base64.b64encode(img_str)
+    
+    # Prepare to drop the package to face++
+    http_url = 'https://api-us.faceplusplus.com/facepp/v3/detect';
+    re_att = 'gender,age,smiling,headpose,eyestatus,emotion,ethnicity,eyegaze,beauty,mouthstatus,blur'
+    payload = {'api_key': KEY,
+               'api_secret': SECRET,
+               'image_base64': img_64,
+               'return_landmark': landmark_106,
+               'return_attributes': re_att}
+   
+    try:
+        # Request Face++, add timeout because it can get stuck
+        response = requests.post(http_url, data=payload, timeout=5)
+        face_num = response.json()['face_num']
+        response = response.json()['faces']
+
+        distances = {}
+        responses = []
+        face_count = 0
+
+        # drop image where face_num larger than compare_face=1
+        if face_num>compare_face:
+            return 0,0,0,0
+        else:
+            # Face++ returns a list of dictionaries
+            for face in response:
+
+                # Since face++ only returns the largest 5 faces
+                if face_count<5:
+
+                    # Make response into a better format for landmarks and attributes
+                    rectangle = face['face_rectangle']
+                    landmarks = {i:(v['x'],v['y']) for i,v in face['landmark'].items()}
+                    attributes = Get_Flattened_Dict(face['attributes'])
+                    
+                    # Check size of face by getting the length between eyes
+                    distance = int(Get_Euclidean_Distance(
+                        np.asarray(landmarks['left_eye_left_corner']),
+                        np.asarray(landmarks['right_eye_right_corner'])))
+
+                    score = (attributes['mouthstatus_other_occlusion'] <= 50) + \
+                    ((attributes['eyestatus_left_eye_status_occlusion'] <= 50) or \
+                     (attributes['eyestatus_right_eye_status_occlusion'] <= 50)) + \
+                    (abs(attributes['headpose_pitch_angle']) <= 10) + \
+                    (abs(attributes['headpose_yaw_angle']) <= 15) + \
+                    (distance >= 40)
+
+                    # Append distance into distances dict
+                    distances[face_count]=distance
+
+                    # Append all into a list 
+                    responses.append((score,landmarks,attributes,rectangle))
+
+                    # Face count adds one because 
+                    # I don't want it to read the no.6 and more 
+                    # Face because it returns nothing
+                    face_count+=1
+
+            # Finally, if no distance detected
+            if len(distances)==0:
+                return 0,0,0,0
+            # If there is at least one distance
+            else:
+                # Check the maximum distance and return position of key
+                selected_key = max(distances.items(), 
+                                   key=operator.itemgetter(1))[0]
+
+                # Unpack the best face using selected key position
+                final_score = responses[selected_key][0]
+                final_landmarks = responses[selected_key][1]
+                final_attributes = responses[selected_key][2]
+                final_rectangle = responses[selected_key][3]
+
+                # Return score, landmarks, attributes,rectangle in this order
+                return final_score, final_landmarks, final_attributes, final_rectangle
+
+    # If for some reason unsuccessful
+    # E.g. timeout after 2 seconds
+    # Or no 'faces' key found in response
+    except:
+        # Return nothing
+        return 0,0,0,0
+    
+def get_rectangle(rectangle):
+    return [((rectangle['left'],
+              rectangle['top']),
+             (rectangle['left']+rectangle['width'],
+              rectangle['top'])),
+            ((rectangle['left'],
+              rectangle['top']+rectangle['height']),
+             (rectangle['left']+rectangle['width'],
+              rectangle['top']+rectangle['height']))]
+    
+def get_faceplusplus_outputs(img,FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET,verify_score=5):
+    '''
+    Params
+    ------
+    img : numpy array of shape (n,n,3)
+    FREE_KEY : free key of F++ API
+    FREE_SECRET: free secret of F++ API
+    PAID_KEY : paid key of F++ API
+    PAID_SECRET: paid secret of F++ API
+    Return
+    ------
+    (score, landmarks, attributes, rectangle, key)
+    (0, 0, 0, 0, key) if no face detected
+    '''
+    score,landmarks,attributes,rectangle = \
+    Get_FacePlusPlus_Outputs(img,FREE_KEY,FREE_SECRET,2,1)
+    if landmarks is not 0: 
+        key = 'free'
+        if score >= verify_score:
+            return score,landmarks,attributes,get_rectangle(rectangle),key
+        else: return score,0,0,0,'none'
+    else: 
+        key = 'paid'
+        score,landmarks,attributes,rectangle = \
+        Get_FacePlusPlus_Outputs(img,PAID_KEY,PAID_SECRET,2,1)
+        if score >= verify_score:
+            return score,landmarks,attributes,get_rectangle(rectangle),key
+        else: return score,0,0,0,'none'
 
 def get_rotated_image(img,src_lt,src_rt,dst_lt=(33,33),
                       dst_rt=(191,33),imsize=224):
