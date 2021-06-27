@@ -3,9 +3,21 @@ from setuptools import setup
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+install_requirements = [
+    "requests",
+    "scipy",
+    "numpy",
+    "pandas",
+    "opencv-python-headless",
+    "scikit-learn",
+    "matplotlib",
+    "python-dotenv",
+    "statsmodels",
+]
+    
 setup(
     name='physiognomy',
-    version='0.2.1',    
+    version='0.2.2',    
     description='All hail god of physiognomy! Long live the pseudoscience!',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -24,4 +36,5 @@ setup(
         'Operating System :: POSIX :: Linux',  
         'Programming Language :: Python :: 3.6',
     ],
+    install_requires=install_requirements,
 )

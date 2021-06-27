@@ -669,7 +669,7 @@ def augment_img(temp,cat,
 
 
 
-def load_custom_vgg():
+def load_custom_vgg(model_fp='./models/vggface.h5'):
     K.clear_session()
 
     # Input tensor
@@ -714,7 +714,7 @@ def load_custom_vgg():
 
     # Create the original model
     vggface = Model(I,O)
-    vggface.load_weights('./Models/Model_vggface.h5')
+    vggface.load_weights(model_fp)
     vggface.trainable=False
 
     # return the custom VGG model
