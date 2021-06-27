@@ -1,12 +1,12 @@
-Metadata-Version: 2.1
+Metadata-Version: 1.1
 Name: physiognomy
-Version: 0.2.1
+Version: 0.2.2
 Summary: All hail god of physiognomy! Long live the pseudoscience!
 Home-page: https://github.com/davidwdw/physiognomy
 Author: Dawei Wang
 Author-email: david.wang@kellogg.northwestern.edu
 License: BSD 2-clause
-Project-URL: Bug Tracker, https://github.com/davidwdw/physiognomy/issues
+Description-Content-Type: text/markdown
 Description: # Physiognomy Manifesto
         
         All hail god of physiognomy! Long live physiognomy! May the king of pseudosciences reign for a thousand years! <br>
@@ -101,4 +101,3 @@ Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Operating System :: POSIX :: Linux
 Classifier: Programming Language :: Python :: 3.6
-Description-Content-Type: text/markdown

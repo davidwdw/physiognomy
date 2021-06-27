@@ -6,4 +6,5 @@ physiognomy/utils.py
 physiognomy.egg-info/PKG-INFO
 physiognomy.egg-info/SOURCES.txt
 physiognomy.egg-info/dependency_links.txt
+physiognomy.egg-info/requires.txt
 physiognomy.egg-info/top_level.txt

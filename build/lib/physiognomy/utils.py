@@ -5,6 +5,7 @@ import cv2, os, operator, math, time, pickle, itertools
 import base64, requests, collections, random
 import pandas as pd; import numpy as np
 from matplotlib import pyplot as plt
+from dotenv import dotenv_values
 
 import tensorflow as tf
 import tensorflow.keras.backend as K
@@ -16,6 +17,10 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
+
+
+
+
 
 def Get_Flattened_Dict(d, parent_key='', sep='_'):
     '''Utility function that flattens nested dictionary
@@ -34,6 +39,37 @@ def Get_Euclidean_Distance(source_representation, test_representation):
     euclidean_distance = source_representation - test_representation
     euclidean_distance = np.sum(np.multiply(euclidean_distance, euclidean_distance))
     return np.sqrt(euclidean_distance)
+
+def load_api_keys(location='.env'):
+    '''
+    Go to https://www.faceplusplus.com and obtain API key + secret.
+    Put your keys and secrets into a hiden file like this:
+    
+    export FREE_KEY = 'X6x5x7x8x6c6c7x8x76c6c8x8c7'
+    export FREE_SECRET = 'Xxx78x7x7x8x78x7x7x8x8x8x8'
+    export PAID_KEY = 'X6x5x7x8x6c6c7x8x76c6c8x8c7'
+    export PAID_SECRET = 'Xxx78x7x7x8x78x7x7x8x8x8x8'
+    
+    Name the hidden file as '.env'.
+    Do not include paid key and secret if you do not have them.
+    Put the '.env' file in the same folder as your program.
+    
+    Return
+    ------
+    tuple: (FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET)
+    '''
+    config = dotenv_values(location)
+    FREE_KEY = config['FREE_KEY']
+    PAID_KEY = config['PAID_KEY']
+    
+    try:
+        FREE_SECRET = config['FREE_SECRET']
+        PAID_SECRET = config['PAID_SECRET']
+    except:
+        FREE_SECRET = None
+        PAID_SECRET = None
+        
+    return (FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET)
 
 def Get_FacePlusPlus_Outputs(img,KEY,SECRET,landmark_106=2,compare_face=1):
     '''
@@ -155,34 +191,44 @@ def get_rectangle(rectangle):
              (rectangle['left']+rectangle['width'],
               rectangle['top']+rectangle['height']))]
     
-def get_faceplusplus_outputs(img,FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET,verify_score=5):
+def get_faceplusplus_outputs(img,key,verify_score=5):
     '''
+    Load the key and secrets using load_api_keys(location) first.
+    This function calls the Get_FacePlusPlus_Outputs function. 
+    This function allows you to request from Face++ using free key,
+    before trying with the paid key to save $$$.
+    
+    Note that free key's priority is low and there is a limit. 
+    
     Params
     ------
     img : numpy array of shape (n,n,3)
-    FREE_KEY : free key of F++ API
-    FREE_SECRET: free secret of F++ API
-    PAID_KEY : paid key of F++ API
-    PAID_SECRET: paid secret of F++ API
+    key : API key in tuple (FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET)
+    
     Return
     ------
     (score, landmarks, attributes, rectangle, key)
     (0, 0, 0, 0, key) if no face detected
     '''
+    
+    FREE_KEY,FREE_SECRET,PAID_KEY,PAID_SECRET = key
+    
     score,landmarks,attributes,rectangle = \
     Get_FacePlusPlus_Outputs(img,FREE_KEY,FREE_SECRET,2,1)
     if landmarks is not 0: 
-        key = 'free'
+        key = 'free | face detected'
         if score >= verify_score:
             return score,landmarks,attributes,get_rectangle(rectangle),key
-        else: return score,0,0,0,'none'
-    else: 
-        key = 'paid'
-        score,landmarks,attributes,rectangle = \
-        Get_FacePlusPlus_Outputs(img,PAID_KEY,PAID_SECRET,2,1)
-        if score >= verify_score:
-            return score,landmarks,attributes,get_rectangle(rectangle),key
-        else: return score,0,0,0,'none'
+        else: return score,0,0,0,'free | face not detected'
+    else:
+        if (PAID_KEY is not None) & (PAID_SECRET is not None):
+            key = 'paid | face detected'
+            score,landmarks,attributes,rectangle = \
+            Get_FacePlusPlus_Outputs(img,PAID_KEY,PAID_SECRET,2,1)
+            if score >= verify_score:
+                return score,landmarks,attributes,get_rectangle(rectangle),key
+            else: return score,0,0,0,'paid | face not detected'
+        else: return score,0,0,0,'no paid key | face not detected'
 
 def get_rotated_image(img,src_lt,src_rt,dst_lt=(33,33),
                       dst_rt=(191,33),imsize=224):
@@ -218,7 +264,25 @@ def get_rotated_image(img,src_lt,src_rt,dst_lt=(33,33),
         np.array([inPts]),np.array([outPts]))[0]
     tform = np.float32(tform.flatten()[:6].reshape(2,3))
     return cv2.warpAffine(img,tform,(imsize,imsize))
+
+def to_grayscale(img,bgr=True,vgg=True):
+    '''
+    convert to grayscale
+    default assumes rgb color image
     
+    returns
+    =======
+    img in three dimensional array
+    '''
+    conversion = [0.1140,0.5870,0.2989] if \
+    bgr==True else [0.2989,0.5870,0.1140]
+    gray = np.dot(img[...,:3],conversion)
+    if vgg == True:
+        gray = np.clip(np.stack(
+            [gray,gray,gray],
+            axis=-1),0,1)
+    return gray
+
     
     
     
@@ -605,7 +669,7 @@ def augment_img(temp,cat,
 
 
 
-def load_custom_vgg():
+def load_custom_vgg(model_fp='./models/vggface.h5'):
     K.clear_session()
 
     # Input tensor
@@ -650,7 +714,7 @@ def load_custom_vgg():
 
     # Create the original model
     vggface = Model(I,O)
-    vggface.load_weights('./Models/Model_vggface.h5')
+    vggface.load_weights(model_fp)
     vggface.trainable=False
 
     # return the custom VGG model

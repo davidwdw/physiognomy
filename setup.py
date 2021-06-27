@@ -1,7 +1,11 @@
+import io,os
 from setuptools import setup
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+def readme():
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    with io.open(
+            os.path.join(base_dir, 'README.md'), 'r', encoding='utf-8') as f:
+        return f.read()
 
 install_requirements = [
     "requests",
@@ -19,12 +23,9 @@ setup(
     name='physiognomy',
     version='0.2.2',    
     description='All hail god of physiognomy! Long live the pseudoscience!',
-    long_description=long_description,
+    long_description=readme(),
     long_description_content_type="text/markdown",
     url='https://github.com/davidwdw/physiognomy',
-    project_urls={
-        "Bug Tracker": "https://github.com/davidwdw/physiognomy/issues",
-    },
     author='Dawei Wang',
     author_email='david.wang@kellogg.northwestern.edu',
     license='BSD 2-clause',
